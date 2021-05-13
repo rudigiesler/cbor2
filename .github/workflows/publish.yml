@@ -2,6 +2,7 @@ name: Publish packages to PyPI
 
 on:
   push:
+    branches: [testpublish]
     tags:
       - "[0-9]+.[0-9]+.[0-9]+"
       - "[0-9]+.[0-9]+.[0-9]+[a-b][0-9]+"
@@ -74,8 +75,9 @@ jobs:
       run: |
         mkdir dist
         mv */*.whl */*.tar.gz dist
-    - name: Upload packages
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        user: __token__
-        password: ${{ secrets.pypi_password }}
+        ls -l dist
+#    - name: Upload packages
+#      uses: pypa/gh-action-pypi-publish@master
+#      with:
+#        user: __token__
+#        password: ${{ secrets.test_pypi_password }}
