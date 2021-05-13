@@ -76,8 +76,9 @@ jobs:
         mkdir dist
         mv */*.whl */*.tar.gz dist
         ls -l dist
-#    - name: Upload packages
-#      uses: pypa/gh-action-pypi-publish@master
-#      with:
-#        user: __token__
-#        password: ${{ secrets.test_pypi_password }}
+    - name: Upload packages
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        user: __token__
+        password: ${{ secrets.testpypi_password }}
+        repository_url: https://test.pypi.org/legacy/
